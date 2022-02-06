@@ -1,0 +1,32 @@
+# Build and Release Folders
+bin-debug/
+bin-release/
+[Oo]bj/
+[Bb]in/
+
+# Other files and folders
+.settings/
+ques2/assignment1_data/
+ques2/_MACOSX/
+
+# Executables
+*.swf
+*.air
+*.ipa
+*.apk
+*.jpg
+
+# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
+# should NOT be excluded as they contain compiler settings and other important
+# information for Eclipse / Flash Builder.
+assignment1/ques2/assignment1_data/__MACOSX/assignment1_data/._.DS_Store
+assignment1/ques2/assignment1_data/assignment1_data/
+assignment1/ques2/assignment1_data/__MACOSX/assignment1_data/
+assignment1/ques2/assignment1_data.zip
+*.ipynb_checkpoints
+assignment1/Ques1/image2.png
+assignment1/Ques1/image1.png
+assignment1/ques2/assignment1_data/.DS_Store
+assignment1/ques2/assignment1_data/test/Red_headed_Woodpecker/.DS_Store
+assignment1/ques2/assignment1_data/test/American_Goldfinch/.DS_Store
+assignment1/ques2/assignment1_data/*
