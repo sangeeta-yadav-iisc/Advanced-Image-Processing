@@ -1,3 +1,3 @@
-# advanced_image_processing
+# Advanced Image Processing
 
-This rpository will contain the assignment done for the course advanced image processing
+This repository will contain the assignments done for the course advanced image processing.
