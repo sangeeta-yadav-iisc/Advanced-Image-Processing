@@ -14,9 +14,9 @@ ques2/_MACOSX/
 *.air
 *.ipa
 *.apk
-*.jpg
+
 *.DS_Store
-*.png
+
 # Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
 # should NOT be excluded as they contain compiler settings and other important
 # information for Eclipse / Flash Builder.
@@ -37,10 +37,11 @@ Harsh/*
 recorded_lectures/*
 teaching_material/*
 books/*
+
 assignment2/hars/*
 assignment1/Harsh_Assignment1_AIP2020/*
 assignment2/Part1.ipynb
-assignment2/images/*
+
 
 recordedlectures/*.mp4
 assignment2/20210524_Semantic_Segmentation_using_PyTorch_DeepLabV3_ResNet50.zip
