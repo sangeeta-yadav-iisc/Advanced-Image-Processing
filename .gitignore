@@ -37,6 +37,7 @@ Harsh/*
 recorded_lectures/*
 teaching_material/*
 books/*
+dataset1/*
 
 assignment2/hars/*
 assignment1/Harsh_Assignment1_AIP2020/*
@@ -55,3 +56,17 @@ assignment2/harsh_assin_report.pdf
 assignment2/Assignment4.ipynb
 assignment2/harsh_ncut.ipynb
 assignment2/pexels-photo-406014.jpeg
+assignment2/dataset1/annotations_prepped_test/*
+assignment2/dataset1/annotations_prepped_train/*
+assignment2/dataset1/images_prepped_test/*
+assignment2/dataset1/images_prepped_train/*
+
+
+Vikash/aip_assignment4_vikash/*
+Vikash/*
+dataset1.zip
+assignment2/Ques3waste.ipynb
+assignment2/Q2_new.py
+assignment2/Ques3.ipynb
+assignment2/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5
+assignment2/Ques3.ipynb
