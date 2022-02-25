@@ -14,6 +14,8 @@ ques2/_MACOSX/
 *.air
 *.ipa
 *.apk
+*.xml
+*.jpg
 
 *.DS_Store
 
@@ -56,3 +58,25 @@ assignment2/Assignment4.ipynb
 assignment2/harsh_ncut.ipynb
 assignment2/pexels-photo-406014.jpeg
 coco/images/train2017.zip
+assignment2/data/indoorCVPR_09/Images/*
+assignment2/data/indoorCVPR_09/Images/airport_inside/airport_inside_0004.jpg
+assignment2/data/indoorCVPR_09annotations/Annotations/*
+assignment2/data/indoorCVPR_09annotations/Annotations/airport_inside/*
+assignment2/data/train/airport_inside/*
+assignment2/data/train/*
+coco/annotations/*
+assignment2/vikash/*
+assignment2/abdullah.ipynb
+assignment2/Ncut.ipynb
+assignment2/alokendra/dataset1.zip
+assignment2/data/TestImages.txt
+assignment2/data/TrainImages.txt
+.gitignore
+assignment2/hymnopetra/hymenoptera_data/train/ants/imageNotFound.gif
+assignment2/VOC/Segmentation.zip
+.gitignore
+coco/images/Unconfirmed 691046.crdownload
+assignment2/VOC/VOCtrainval_11-May-2012.tar
+assignment2/hymnopetra/hymenoptera_data/train/ants/formica.jpeg
+assignment2/Ncut.ipynb
+assignment2/Ncut.ipynb
