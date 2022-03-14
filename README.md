@@ -20,4 +20,4 @@ The submitted project [report](https://github.com/shongi-yd/advanced_image_proce
 
 [Assignment 3](https://github.com/shongi-yd/advanced_image_processing/tree/master/assignment3)
 
-* [Ques 3](https://github.com/shongi-yd/advanced_image_processing/blob/master/assignment3/Assignment3_project_report.pdf)
+* The submitted project [report](https://github.com/shongi-yd/advanced_image_processing/blob/master/assignment3/Assignment3_project_report.pdf)
