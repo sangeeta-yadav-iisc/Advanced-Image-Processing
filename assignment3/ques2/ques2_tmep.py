@@ -4,11 +4,16 @@ import matplotlib.pyplot as plt
 
 
 img = cv2.imread('lighthouse2.bmp')
+cv2.imwrite('image.png', img)
 gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+cv2.imwrite('grayimage.png', gray_img)
 noise = gray_img.copy()
 cv2.randn(noise,(0),(10)) 
 # temp_noise = noisy_img.copy()
 noisy_img = gray_img + noise
+noisy_img[noisy_img > 255] = 255
+noisy_img[noisy_img < 0] = 0
+cv2.imwrite('noisyimage.png', noisy_img)
 # cv2.imshow("GrayScaledOriginal",gray_img)
 # cv2.waitKey(3000)
 # cv2.imshow("NoisyImage",noisy_img)
@@ -68,17 +73,17 @@ print(Y)
 # plt.imshow(denoised_img)
 # plt.show()
 
-### Adaptive MSME filters
-nrows, ncols = y1.shape 
+# ### Adaptive MSME filters
+# nrows, ncols = y1.shape 
  
-mask = np.zeros(y1.shape,np.uint8)
-for row in range(ncols-11+1):
-    for col in range(nrows-11+1):
-        patch = y1[row:row+11,col:col+11]
-        var_x1 = np.var(y1)-var_z1
-        denoised_img = flt_img+(var_x1*y1)/(var_x1+var_z1)
+# mask = np.zeros(y1.shape,np.uint8)
+# for row in range(ncols-11+1):
+#     for col in range(nrows-11+1):
+#         patch = y1[row:row+11,col:col+11]
+#         var_x1 = np.var(y1)-var_z1
+#         denoised_img = flt_img+(var_x1*y1)/(var_x1+var_z1)
 
-        mask[row:row+11,col:col+11]+=patch
+#         mask[row:row+11,col:col+11]+=patch
 
 
 
