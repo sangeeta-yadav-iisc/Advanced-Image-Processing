@@ -39,6 +39,7 @@ Harsh/*
 recorded_lectures/*
 teaching_material/*
 books/*
+dataset1/*
 
 assignment2/hars/*
 assignment1/Harsh_Assignment1_AIP2020/*
@@ -57,7 +58,24 @@ assignment2/harsh_assin_report.pdf
 assignment2/Assignment4.ipynb
 assignment2/harsh_ncut.ipynb
 assignment2/pexels-photo-406014.jpeg
+<<<<<<< HEAD
+assignment2/dataset1/annotations_prepped_test/*
+assignment2/dataset1/annotations_prepped_train/*
+assignment2/dataset1/images_prepped_test/*
+assignment2/dataset1/images_prepped_train/*
+
+
+Vikash/aip_assignment4_vikash/*
+Vikash/*
+dataset1.zip
+assignment2/Ques3waste.ipynb
+assignment2/Q2_new.py
+assignment2/Ques3.ipynb
+assignment2/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5
+assignment2/Ques3.ipynb
+=======
 coco/images/train2017.zip
+<<<<<<< HEAD
 assignment2/data/indoorCVPR_09/Images/*
 assignment2/data/indoorCVPR_09/Images/airport_inside/airport_inside_0004.jpg
 assignment2/data/indoorCVPR_09annotations/Annotations/*
@@ -80,3 +98,11 @@ assignment2/VOC/VOCtrainval_11-May-2012.tar
 assignment2/hymnopetra/hymenoptera_data/train/ants/formica.jpeg
 assignment2/Ncut.ipynb
 assignment2/Ncut.ipynb
+=======
+>>>>>>> 14a2c8674c8196d2055b420012172ef257711714
+extras/Vikash/Assignment1/*
+extras/Vikash/assignment2/*
+extras/Vikash/*
+extras/hars/*
+extras/ass2/faltu/*
+>>>>>>> 2114767f6d60e3d5f5e990ec3eb418885567a3b5
