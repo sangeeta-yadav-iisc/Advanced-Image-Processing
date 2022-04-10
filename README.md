@@ -31,3 +31,5 @@ The submitted project [report](https://github.com/shongi-yd/advanced_image_proce
 * [Ques 2](https://github.com/shongi-yd/advanced_image_processing/blob/master/assignment4/ques2/ques2.ipynb)
 * [Ques 2b](https://github.com/shongi-yd/advanced_image_processing/blob/master/assignment4/ques2/ques2b.ipynb)
 * [Ques 3](https://github.com/shongi-yd/advanced_image_processing/blob/master/assignment4/ques3/ques3.ipynb)
+
+* The submitted project [report](https://github.com/shongi-yd/advanced_image_processing/blob/master/assignment4/Assignment4_report.pdf)
