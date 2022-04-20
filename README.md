@@ -37,8 +37,8 @@ The submitted project [report](https://github.com/shongi-yd/advanced_image_proce
 
 [Assignment 5](https://github.com/shongi-yd/advanced_image_processing/tree/master/assignment5)
 
-* [FasterRCNN](https://github.com/shongi-yd/advanced_image_processing/blob/master/assignment5/fasterrcnn.ipynb
-* [YOLO](https://github.com/shongi-yd/advanced_image_processing/blob/master/assignment5/yolocode.ipynb
+* [FasterRCNN](https://github.com/shongi-yd/advanced_image_processing/blob/master/assignment5/fasterrcnn.ipynb)
+* [YOLO](https://github.com/shongi-yd/advanced_image_processing/blob/master/assignment5/yolocode.ipynb)
 
 * The submitted project [report](https://github.com/shongi-yd/advanced_image_processing/blob/master/assignment5/sangeeta_Assignment5_report.pdf)
 
