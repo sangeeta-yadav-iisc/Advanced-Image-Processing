@@ -14,6 +14,8 @@ ques2/_MACOSX/
 *.air
 *.ipa
 *.apk
+*.xml
+*.jpg
 
 *.DS_Store
 
@@ -73,17 +75,51 @@ assignment2/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5
 assignment2/Ques3.ipynb
 =======
 coco/images/train2017.zip
+<<<<<<< HEAD
+assignment2/data/indoorCVPR_09/Images/*
+assignment2/data/indoorCVPR_09/Images/airport_inside/airport_inside_0004.jpg
+assignment2/data/indoorCVPR_09annotations/Annotations/*
+assignment2/data/indoorCVPR_09annotations/Annotations/airport_inside/*
+assignment2/data/train/airport_inside/*
+assignment2/data/train/*
+coco/annotations/*
+assignment2/vikash/*
+assignment2/abdullah.ipynb
+assignment2/Ncut.ipynb
+assignment2/alokendra/dataset1.zip
+assignment2/data/TestImages.txt
+assignment2/data/TrainImages.txt
+.gitignore
+assignment2/hymnopetra/hymenoptera_data/train/ants/imageNotFound.gif
+assignment2/VOC/Segmentation.zip
+.gitignore
+coco/images/Unconfirmed 691046.crdownload
+assignment2/VOC/VOCtrainval_11-May-2012.tar
+assignment2/hymnopetra/hymenoptera_data/train/ants/formica.jpeg
+assignment2/Ncut.ipynb
+assignment2/Ncut.ipynb
+=======
 >>>>>>> 14a2c8674c8196d2055b420012172ef257711714
 extras/Vikash/Assignment1/*
 extras/Vikash/assignment2/*
 extras/Vikash/*
 extras/hars/*
 extras/ass2/faltu/*
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 2114767f6d60e3d5f5e990ec3eb418885567a3b5
+=======
+=======
+>>>>>>> a14e89670e8c854462ed819ed4f880035f3edde1
 DIP_question_papers/Midterm2Solutions (1).pdf
 DIP_question_papers/dip2020Midterm2 (2).pdf
 DIP_question_papers/dip2020Midterm1 (2).pdf
 DIP_question_papers/dip2020final (2).pdf
 assignment3/img1.jpg
+<<<<<<< HEAD
+>>>>>>> 0d520753f045d00baec7c2ce5c6007440ed5af1d
+project/*
+=======
 aditya/Assignment_2_AIP/image-000.jpg
 aditya/Assignment_2_AIP.pdf
 assignment3/ques2/waste.ipynb
@@ -133,7 +169,11 @@ assignment2/aditya_Assignment_2_AIP.pdf
 assign5_bonusassignment/PennFudanPed.zip
 assign5_bonusassignment_waste/*
 assignment5/images/*
+<<<<<<< HEAD
 
 assignment3/ques2/ques2_final.py
 assignment3/ques2/ques2_waste.py
 assignment3/ques2/adaptive_mmse.ipynb
+=======
+>>>>>>> a14e89670e8c854462ed819ed4f880035f3edde1
+>>>>>>> 10ce263ae8b7a84176e2d422bf3989e3897d0eb8
