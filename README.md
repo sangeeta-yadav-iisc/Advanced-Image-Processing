@@ -1,6 +1,6 @@
-# Advanced Image Processing
+# Advanced Image Processing-2022
 
-This repository will contain the assignments done for the course advanced image processing.
+This repository will contain the assignments done for the course advanced image processing(2022).
 
 [Assignment 1](https://github.com/shongi-yd/advanced_image_processing/tree/master/assignment1)
 
