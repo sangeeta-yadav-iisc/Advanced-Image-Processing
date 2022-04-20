@@ -1,91 +1,108 @@
-import cv2, os
+import skimage.io as io
+import cv2
 import numpy as np
-import matplotlib.pyplot as plt
+from matplotlib import pyplot as plt
+from skimage.util import random_noise
+from skimage.filters import gaussian
+from skimage.color import rgb2gray
 
 
-img = cv2.imread('lighthouse2.bmp')
-cv2.imwrite('image.png', img)
-gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-cv2.imwrite('grayimage.png', gray_img)
-noise = gray_img.copy()
-cv2.randn(noise,(0),(10)) 
-# temp_noise = noisy_img.copy()
-noisy_img = gray_img + noise
-noisy_img[noisy_img > 255] = 255
-noisy_img[noisy_img < 0] = 0
-cv2.imwrite('noisyimage.png', noisy_img)
-# cv2.imshow("GrayScaledOriginal",gray_img)
-# cv2.waitKey(3000)
-# cv2.imshow("NoisyImage",noisy_img)
-# cv2.waitKey(3000)
-
-def gaussian_filter(shape =(3,3), sigma=1):
-    x, y = [edge //2 for edge in shape]
-    grid = np.array([[((i**2+j**2)/(2.0*sigma**2)) for i in range(-x, x+1)] for j in range(-y, y+1)])
-    g_filter = np.exp(-grid)/(2*np.pi*sigma**2)
-    g_filter /= np.sum(g_filter)
-    return g_filter
-
-## Part 1 Low pass Gaussian Filter
-filterlens = [3,7,11]
-sigmas = [0.1,1,2,4,8]
-print(f"Filter \t Sigma \t MSE")
-MSEs = []
-filterind = []
-for filterlen in filterlens:
-    for sigma in sigmas:
-        # filters = gaussian_filter(shape =(filterlen,filterlen), sigma=sigma)
-        # flt_img = cv2.filter2D(src=noisy_img, ddepth=-1, kernel=filters)
-        flt_img = cv2.GaussianBlur(noisy_img, (filterlen,filterlen), sigma)
-        Y = np.square(np.subtract(gray_img,flt_img)).mean()
-        filterind.append([filterlen,sigma])
-        MSEs.append(Y)
-        print(f"{filterlen},\t{sigma},\t{Y}")
-min_kernel=filterind[MSEs.index(min(MSEs))]
-print(f"The least MSE error is {min(MSEs):5f} for the filter size and sigma: {min_kernel}")
-
-## Show denoised image from best low pass gaussian filter
-filters = gaussian_filter(shape =(min_kernel[0],min_kernel[0]), sigma=10)#min_kernel[1])
-flt_img = cv2.filter2D(src=noisy_img, ddepth=-1, kernel=filters)
-# cv2.imshow('low_pass_filtered_image',flt_img)
-# cv2.waitKey(5000)  
-cv2.destroyAllWindows() 
 
 
-## Part 2 MMSE Filter on high pass coefficients
-hpf = -np.ones((3,3))
-hpf[1,1] = 8
+def LP_filt(gray_img,noisy_img,L,sd):
+    # Part 1: Doing the low pass filtering with different filter length and sigma
+    print("\tPart1: Low Pass Filtering...\n")
+    mse = dict()
+    for l in L:
+        for s in sd:
+			mse.update({np.mean((gauss_filt(noisy_img,sigma = s, length = l).ravel()-gray_img.ravel())**2):[l,s]})
+	sorted_keys = sorted(mse)
 
-y1 = cv2.filter2D(src=noisy_img, ddepth=-1, kernel=hpf)
-var_z1 = 100*((1-hpf[0,0])**2+((hpf**2).sum()-hpf[0,0]**2))
+	print(f"Min. MSE is found for σ = {mse[sorted_keys[0]][1]} and filter length = {mse[sorted_keys[0]][0]}")
+	filtered_img = gauss_filt(noisy_img,sigma = mse[sorted_keys[0]][1], length = mse[sorted_keys[0]][0])
+	io.imsave('lp_image.jpg',filtered_img)
+	plt.imshow(filtered_img,cmap = 'gray')
+	plt.title(f'Gaussian LPF with σ = {mse[sorted_keys[0]][1]}, &\nFilter length = {mse[sorted_keys[0]][0]}')
+	plt.show()
 
-# mu_y = np.mean(noisy_img)
-var_x1 = np.var(y1)-var_z1
-denoised_img = flt_img+(var_x1*y1)/(var_x1+var_z1)
+def gauss_filt(I,sigma = 1, length = 3):
+	return cv2.GaussianBlur(I,ksize = (length,length),sigmaX = sigma, borderType = 0)
 
-cv2.imshow('filtered_image_MMSE',denoised_img)
-cv2.waitKey(5000)  
-cv2.destroyAllWindows() 
-Y = ((gray_img-denoised_img)**2).mean()
-print(Y)
+def MMSE(L, sd,image = None):
+	hp_noise = image - gauss_filt(image, sd,L)
+	sd_orig = np.var(hp_noise.ravel()) - 100
+	return np.mean(image.ravel()) + (sd_orig/(sd_orig+100))*image
 
-# plt.imshow(gray_img)
-# plt.show()
-# plt.imshow(denoised_img)
-# plt.show()
+def MMSE_filt(gray_img,noisy_img,L,sd):
+    print("\tPart2: MMSE Filter...\n")
+	mse = dict()
+	for l in L:
+		for s in sd:
+			clean_img = MMSE(l,s,noisy_img)
+			# original_img = get_images()[0]
+			mse.update({np.mean(clean_img.ravel()-gray_img.ravel())**2 : [clean_img, s, l]})
+	
+	sorted_keys = sorted(mse)
+	print(f"least MSE occurs for σ = {mse[sorted_keys[0]][1]} and filter length = {mse[sorted_keys[0]][2]}")
+	plt.imshow(mse[sorted_keys[0]][0],cmap = 'gray')
+	plt.title(f'MMSE with σ = {mse[sorted_keys[0]][1]}, & filter length = {mse[sorted_keys[0]][2]}')
+	plt.show()
 
-# ### Adaptive MSME filters
-# nrows, ncols = y1.shape 
- 
-# mask = np.zeros(y1.shape,np.uint8)
-# for row in range(ncols-11+1):
-#     for col in range(nrows-11+1):
-#         patch = y1[row:row+11,col:col+11]
-#         var_x1 = np.var(y1)-var_z1
-#         denoised_img = flt_img+(var_x1*y1)/(var_x1+var_z1)
+def get_patch( image, path_size = [11,11], step = 6):
+    for y in range(0,image.shape[0]-path_size[1]+1,step):
+        for x in range(0,image.shape[1]-path_size[0]+1,step):
+            yield y,x,image[y:y+path_size[1],x:x+path_size[0]]
 
-#         mask[row:row+11,col:col+11]+=patch
+def Ada_MMSE(patch_size,overlap,img = None):
+	print("\tPart3: Adaptive_MMSE...\n")
+	step = patch_size-overlap
+	layers = []
+    for i,patch in zip(list(range(0,img.size,step)),get_patch(img, [patch_size,patch_size], step)):
+		filtered_patch = MMSE(length = patch_size,σ = 10,image = patch[2])
+		layer = np.zeros(img.shape)
+		layer[patch[0]:patch[0]+patch_size,patch[1]:patch[1]+patch_size] = filtered_patch
+		layers.append(layer)
 
+	Filter = layers[0]
+	for i,_ in enumerate(Filter):
+		for j,_ in enumerate(Filter[i]):
+			if(i > 10 or j > 10):
+				S = 0
+				nz_lay = 0 ## No. of non zero layers
+				for layer in layers:
+					S+= layer[i,j]
+					if(layer[i,j] != 0):
+						nz_lay+= 1
+					if (nz_lay):
+						Filter[i,j] = S/nz_lay
+					else:
+						Filter[i,j] = 0
+	Filter = Filter.astype(np.uint8)
+	return Filter
+
+
+
+
+
+if __name__ == '__main__':
+
+    #Read the image 
+
+    image = (rgb2gray(io.imread('lighthouse2.bmp'))*255).astype('uint8')
+	noisy_image = (np.random.normal(loc = 0, scale = 10, size = image.shape) + image).astype(np.uint8)
+
+    # Part 1: Doing the low pass filtering with different filter length and sigma
+    filter_lengths = [3, 7, 11]
+	sd = [0.1, 1, 2, 4, 8]
+	LP_filt(image, noisy_image,filter_lengths,sd) 
+	
+    # Part 2: MMSE filter 
+    MMSE_filt(image,noisy_image,L,sd) 
+
+    # Part3: Adaptive MMSE filter for path of 11 x11 and overlap of 5
+	I = Ada_MMSE(11,5)
+	plt.imshow(I,cmap = 'gray')
+	plt.show()
 
 
 
